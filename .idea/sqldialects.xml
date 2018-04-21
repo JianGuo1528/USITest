@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="SqlDialectMappings">
+    <file url="file://$PROJECT_DIR$/../usiTrip/src/main/resources/com/usitrip/dao/DestinationMapper.xml" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/../usiTrip/src/main/resources/com/usitrip/dao/HotelbedsMapZoneUsMapper.xml" dialect="MySQL" />
+    <file url="file://$PROJECT_DIR$/../usiTrip/src/main/resources/com/usitrip/dao/PnlAirportMapper.xml" dialect="MySQL" />
+  </component>
+</project>
