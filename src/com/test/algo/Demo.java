@@ -1,6 +1,6 @@
 package com.test.algo;
 
-import org.junit.Test;
+import org.testng.annotations.Test;
 
 import java.math.BigDecimal;
 import java.util.*;
