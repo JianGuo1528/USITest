@@ -18,7 +18,7 @@ public class Demo05 {
 
     public static void main(String[] args) throws IOException {
         Demo05 request = new Demo05();
-        String url_request = "https://maps.googleapis.com/maps/api/distancematrix/json?origins=Ricadi, IT&destinations=Lourdes, FR&key=" + API_KEY;
+        String url_request = "https://maps.googleapis.com/maps/api/distancematrix/json?origins=Saint-Bertrand-de-Comminges&destinations=Natural Park Alcornocales&key=" + API_KEY;
 //        String url_request = "https://maps.google.com/maps/api/geocode/json?address=Robertson - TN&sensor=false&key=" + API_KEY;
 //        String url_request = "https://maps.google.com/maps/api/geocode/json?latlng=43.8136641364528,-70.1506438851084&sensor=false&key=" + API_KEY;
 
