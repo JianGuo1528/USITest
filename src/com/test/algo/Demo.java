@@ -454,4 +454,64 @@ public class Demo {
         }
         return result;
     }
+
+    /**
+     * Given an array nums of n integers and an integer target, find three integers in nums such that the sum is closest to target.
+     * Return the sum of the three integers. You may assume that each input would have exactly one solution.
+     * Example:
+     * Given array nums = [-1, 2, 1, -4], and target = 1.
+     * The sum that is closest to the target is 2. (-1 + 2 + 1 = 2).
+     */
+    @Test
+    public void test10() {
+        int[] nums = {0,5,-1,-2,4,-1,0,-3,4,-5};
+        //[-5, -3, -2, -1, -1, 0, 0, 4, 4, 5]
+        System.out.println(threeSumClosest(nums, 1));
+
+    }
+
+    private int threeSumClosest(int[] nums, int target) {
+        if(nums == null || nums.length<3) {
+            return target;
+        }
+
+        Arrays.sort(nums);
+        int diff = target > 0 ? Integer.MAX_VALUE - target : Integer.MAX_VALUE;
+        int result = 0;
+
+        for(int i=0; i<nums.length-2; i++){
+            if(i==0 || nums[i] > nums[i-1]){
+                int j=i+1;
+                int k=nums.length-1;
+
+                while(j<k){
+                    int temp = nums[i]+nums[j]+nums[k];
+                    if (Math.abs(nums[i]+nums[j]+nums[k] - target) < diff) {
+                        diff = Math.abs(nums[i]+nums[j]+nums[k] - target);
+                        result = nums[i]+nums[j]+nums[k];
+                    }
+                    if(temp==target){
+                        return nums[i]+nums[j]+nums[k];
+                    }else if(temp<target){
+                        j++;
+                    }else{
+                        k--;
+                    }
+                }
+            }
+        }
+        return result;
+    }
+
+    /**
+     * Given a string containing digits from 2-9 inclusive, return all possible letter combinations that the number could represent.
+     * A mapping of digit to letters (just like on the telephone buttons) is given below. Note that 1 does not map to any letters.
+     * Example:
+     * Input: "23"
+     * Output: ["ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"].
+     */
+    @Test
+    public void test11() {
+
+    }
 }

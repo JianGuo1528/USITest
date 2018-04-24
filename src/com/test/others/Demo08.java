@@ -1,3 +1,5 @@
+package com.test.others;
+
 public class Demo08 {
     public static void main(String[] args) {
         int n = 10;

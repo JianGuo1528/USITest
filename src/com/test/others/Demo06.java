@@ -1,3 +1,5 @@
+package com.test.others;
+
 import java.util.*;
 
 public class Demo06 {
