@@ -1,6 +1,8 @@
 package com.test.algo;
 
 import java.util.*;
+
+import com.test.pojo.People;
 import org.junit.Test;
 
 public class Demo {
@@ -512,6 +514,18 @@ public class Demo {
      */
     @Test
     public void test11() {
+        String digits = "23";
+        int[] a = {1, 2, 3};
+        People p1 = new People("Jack", 12);
+        People p2 = new People("Jack", 12);
+        System.out.println(p1.hashCode());
+
+        HashMap<People, Integer> hashSet = new HashMap();
+        hashSet.put(p1, 1);
+        hashSet.put(p2, 2);
+
+        System.out.println(hashSet.get(p1));
+        System.out.println(p1.equals(new People("Jack", 12)));
 
     }
 }

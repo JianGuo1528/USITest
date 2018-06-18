@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="war" name="mailServermaster:war">
-    <output-path>$PROJECT_DIR$/../mailServermaster/target</output-path>
-    <root id="archive" name="mailServer-master.war">
-      <element id="artifact" artifact-name="mailServermaster:war exploded" />
-    </root>
-  </artifact>
-</component>

@@ -7,12 +7,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="MyPro" />
+        <module name="mysb" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="EmailService" target="1.7" />
-      <module name="mailServermaster" target="1.5" />
+    <bytecodeTargetLevel target="8">
       <module name="MyPro" target="1.8" />
+      <module name="mysb" target="1.8" />
       <module name="usiTrip" target="1.8" />
     </bytecodeTargetLevel>
   </component>
