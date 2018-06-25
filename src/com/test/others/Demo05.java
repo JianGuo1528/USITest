@@ -24,7 +24,7 @@ public class Demo05 {
     public static void main(String[] args) throws IOException {
         Demo05 request = new Demo05();
 //        String url_request = "https://maps.googleapis.com/maps/api/distancematrix/json?origins=Bobrek, PL&destinations=彭巴,莫桑比克&language=zh-CN&key=" + API_KEY;
-        String url_request = "https://maps.google.com/maps/api/geocode/json?address=朝日, 日本&sensor=false&key=" + API_KEY;
+        String url_request = "https://maps.google.com/maps/api/geocode/json?address=Jamaica, Steer Town&language=zh-CN&sensor=false&key=" + API_KEY;
 //        String url_request = "https://maps.google.com/maps/api/geocode/json?latlng=53.7229,14.2885&language=zh-CN&sensor=false&key=" + API_KEY;
 
         String response = request.run(url_request);
