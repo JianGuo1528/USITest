@@ -1,4 +1,4 @@
-package com.test.test;
+package com.test.test.preorder;
 
 import com.test.pojo.TreeNode;
 
@@ -28,11 +28,19 @@ import com.test.pojo.TreeNode;
 public class A05_112PathSum {
 
 	public static boolean hasPathSum(TreeNode root, int sum) {
-
-		return false;
+		return dfs(root, 0, sum);
 	}
 
-
+	public static boolean dfs(TreeNode root, int value, int sum) {
+		if (root == null) {
+			return false;
+		}
+		if (root.left == null && root.right == null) {
+			return (value + root.val) == sum;
+		}
+		value += root.val;
+		return dfs(root.left, value, sum) || dfs(root.right, value, sum);
+	}
 
 	public static void main(String[] args) {
 		TreeNode t1 = new TreeNode(5);
@@ -42,7 +50,7 @@ public class A05_112PathSum {
 		TreeNode t5 = new TreeNode(13);
 		TreeNode t6 = new TreeNode(4);
 		TreeNode t7 = new TreeNode(7);
-		TreeNode t8 = new TreeNode(3);
+		TreeNode t8 = new TreeNode(2);
 		TreeNode t9 = new TreeNode(1);
 
 		t1.left =  t2;

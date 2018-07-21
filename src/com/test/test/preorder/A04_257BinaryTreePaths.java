@@ -1,7 +1,8 @@
-package com.test.test;
+package com.test.test.preorder;
 
 import com.test.pojo.TreeNode;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -30,10 +31,39 @@ import java.util.List;
 public class A04_257BinaryTreePaths {
 
 	public static List<String> binaryTreePaths(TreeNode root) {
-
-		return null;
+		List<String> list = new ArrayList<>();
+		dfs1(list, "", root);
+		return list;
 	}
 
+	public static void dfs(List<String> list, String str, TreeNode root) {
+		if(root == null){
+			return;
+		}
+		str += root.val;
+		if (root.left == null && root.right == null) {
+			list.add(str);
+			return;
+		}
+		str += "->";
+
+			dfs(list, str, root.left);
+			dfs(list, str, root.right);
+
+	}
+	public static void dfs1(List<String> list, String str, TreeNode root) {
+		if(root == null){
+			return;
+		}
+ 		if (root.left == null && root.right == null) {
+			list.add(str + root.val);
+			return;
+ 		}
+
+			dfs(list, str + root.val+"->", root.left);
+			dfs(list, str + root.val+"->", root.right);
+
+	}
 
 
 	public static void main(String[] args) {
