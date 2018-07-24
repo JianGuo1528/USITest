@@ -1,9 +1,6 @@
 package com.test.others;
 
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Stack;
+import java.util.*;
 
 public class Demo {
     public static void main(String[] args) {
@@ -46,8 +43,9 @@ public class Demo {
             }
         }*/
 
-        quickSort(newList, 0, newList.size() - 1);
-        System.out.println(newList);
+        Integer[] integers = newList.toArray(new Integer[]{});
+        quickSort2(integers, 0, newList.size() - 1);
+        System.out.println(Arrays.toString(integers));
 
 
     }
@@ -60,27 +58,44 @@ public class Demo {
 
         int begin = first;
         int end = last;
-        int pivotalIndex = first;
-        int pivotalValue = list.get(pivotalIndex);
+        int pivotalValue = list.get(first);
         while (begin < end) {
             while (begin < end && list.get(begin) <= pivotalValue) {
-                begin ++;
+                begin++;
             }
+            if (begin < end) list.set(end--, list.get(begin));
             while (begin < end && list.get(end) >= pivotalValue) {
-                end --;
+                end--;
             }
-            if (begin != end) {
-                Integer temp = list.get(begin);
-                list.set(begin, list.get(end));
-                list.set(end, temp);
-            }
+            if (begin < end) list.set(begin++, list.get(end));
         }
-        if (list.get(begin) < pivotalValue) {
-            Integer temp = list.get(begin);
-            list.set(begin, list.get(pivotalIndex));
-            list.set(pivotalIndex, temp);
-        }
+        list.set(begin, pivotalValue);
         quickSort(list, first, begin - 1);
         quickSort(list, begin, last);
+    }
+
+    public static void quickSort2(Integer s[], int left, int right) {
+        LinkedHashMap<Integer, Integer> lhp = new LinkedHashMap<>();
+        //将0,n放入LinkedHashMap
+        lhp.put(left, right);
+        while (!lhp.isEmpty()) {      //只要有需要排序的段
+            //读取left，right
+            Iterator<Map.Entry<Integer, Integer>> it = lhp.entrySet().iterator();
+            left = it.next().getKey();
+            right = lhp.get(left);
+            //并从LinkedHashMap中删除
+            lhp.remove(left, right);
+            if (left >= right) continue;
+            int i = left, j = right, temp = s[right];
+            while (i < j) {         //遍历排序一遍
+                while (s[i] <= temp && i < j) i++;
+                if (i < j) s[j--] = s[i];
+                while (s[j] >= temp && i < j) j--;
+                if (i < j) s[i++] = s[j];
+            }
+            s[i] = temp;
+            lhp.put(left, i - 1);
+            lhp.put(i + 1, right);
+        }
     }
 }
