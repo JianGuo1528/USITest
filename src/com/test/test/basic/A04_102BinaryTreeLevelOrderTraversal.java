@@ -28,7 +28,7 @@ import java.util.List;
  *
  */
 public class A04_102BinaryTreeLevelOrderTraversal {
-
+	private static List<Integer> list = new ArrayList<>();
 
 	public static List<List<Integer>> levelOrder(TreeNode root) {
 		List<List<Integer>> list = new ArrayList<>();
@@ -57,7 +57,35 @@ public class A04_102BinaryTreeLevelOrderTraversal {
 		dfs(root.right, list, level + 1);
 	}
 
+	private static void preOrder(TreeNode root) {
+		list.add(root.val);
+		if (root.left != null) {
+			preOrder(root.left);
+		}
+		if (root.right != null) {
+			preOrder(root.right);
+		}
+	}
 
+	private static void inOrder(TreeNode root) {
+		if (root.left != null) {
+			inOrder(root.left);
+		}
+		list.add(root.val);
+		if (root.right != null) {
+			inOrder(root.right);
+		}
+	}
+
+	private static void postOrder(TreeNode root) {
+		if (root.left != null) {
+			postOrder(root.left);
+		}
+		if (root.right != null) {
+			postOrder(root.right);
+		}
+		list.add(root.val);
+	}
 
 	public static void main(String[] args) {
 		TreeNode t1 = new TreeNode(3);
@@ -72,7 +100,9 @@ public class A04_102BinaryTreeLevelOrderTraversal {
 		t3.left = t4;
 		t3.right = t5;
 
-		System.out.println(levelOrder(t1));
+//		System.out.println(levelOrder(t1));
 
+		postOrder(t1);
+		System.out.println(list);
 	}
 }
