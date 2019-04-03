@@ -1,9 +1,9 @@
 package com.test.algo;
 
-import java.util.*;
-
 import com.test.pojo.People;
 import org.junit.Test;
+
+import java.util.*;
 
 public class Demo {
     /**
