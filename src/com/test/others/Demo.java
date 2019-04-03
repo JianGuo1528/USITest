@@ -10,12 +10,14 @@ public class Demo {
         list1.add(1);
         list1.add(10);
         list1.add(5);
+        list1.add(5);
         list1.add(6);
         list1.add(16);
 
         list2.add(3);
         list2.add(25);
         list2.add(10);
+        list2.add(-18);
 
         List<Integer> newList = new LinkedList<>();
 
@@ -47,7 +49,15 @@ public class Demo {
         quickSort2(integers, 0, newList.size() - 1);
         System.out.println(Arrays.toString(integers));
 
-
+        List<String> list = new ArrayList<String>() {{
+            add("string1");
+            add("string2");
+            //some other add() code......
+            add("stringN");
+        }};
+        System.out.println(list);
+        Collections.swap(list, 0, 1);
+        System.out.println(list);
     }
 
     public static void quickSort(List<Integer> list, int first, int last) {
@@ -78,10 +88,11 @@ public class Demo {
         LinkedHashMap<Integer, Integer> lhp = new LinkedHashMap<>();
         //将0,n放入LinkedHashMap
         lhp.put(left, right);
+
         while (!lhp.isEmpty()) {      //只要有需要排序的段
             //读取left，right
-            Iterator<Map.Entry<Integer, Integer>> it = lhp.entrySet().iterator();
-            left = it.next().getKey();
+            Iterator<Integer> it = lhp.keySet().iterator();
+            left = it.next();
             right = lhp.get(left);
             //并从LinkedHashMap中删除
             lhp.remove(left, right);
